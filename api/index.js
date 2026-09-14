@@ -9,9 +9,10 @@ module.exports = (req, res) => {
 
   const u = formatearUsuario(req.query.usuario, 'Netrunner');
   const o1 = formatearUsuario(req.query.o1, 'Víctima1');
+  const o2 = formatearUsuario(req.query.o2, 'Víctima2');
 
   const historias = [
-`🧹 ¡ALERTA DE MANTENIMIENTO! 🚀 A ${o1} y a ${o2} les toca limpiar la nave hoy. Mientras ${o1} intenta pasar la mopa en gravedad cero flotando en círculos, ${o2} derramó su café frío sobre los mandos del hiperimpulsor. ¡A fregar antes de que nos estrelemos contra un asteroide! 🌌✨`,
+    `🧹 ¡ALERTA DE MANTENIMIENTO! 🚀 A ${o1} y a ${o2} les toca limpiar la nave hoy. Mientras ${o1} intenta pasar la mopa en gravedad cero flotando en círculos, ${o2} derramó su café frío sobre los mandos del hiperimpulsor. ¡A fregar antes de que nos estrellemos contra un asteroide! 🌌✨`,
     
     `🧽 SANCIÓN COMUNITARIA 🛸: ${o1} y ${o2} fueron atrapados durmiendo en las cápsulas de escape y hoy les toca fregar los motores. ${o1} usó detergente de materia oscura que abrió un portal al infierno y ${o2} tiró la basura por la escotilla equivocada... ¡La nave ahora huele a tostada quemada galáctica! 🧼⭐`,
     
