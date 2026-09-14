@@ -1,10 +1,17 @@
 module.exports = (req, res) => {
-  // Leemos o1 y o2 para que coincida con la sintaxis de tu otro comando
-  const o1 = req.query.o1 || 'un tripulante misterioso';
-  const o2 = req.query.o2 || 'otro tripulante despistado';
+  const formatearUsuario = (valor, porDefecto) => {
+    if (!valor || valor.includes('random.chatter') || valor.includes('${')) {
+      return `@${porDefecto}`;
+    }
+    const limpio = valor.replace(/^@/, '').trim();
+    return `@${limpio}`;
+  };
+
+  const u = formatearUsuario(req.query.usuario, 'Netrunner');
+  const o1 = formatearUsuario(req.query.o1, 'Víctima1');
 
   const historias = [
-    `🧹 ¡ALERTA DE MANTENIMIENTO! 🚀 A ${o1} y a ${o2} les toca limpiar la nave hoy. Mientras ${o1} intenta pasar la mopa en gravedad cero flotando en círculos, ${o2} derramó su café frío sobre los mandos del hiperimpulsor. ¡A fregar antes de que nos estrelemos contra un asteroide! 🌌✨`,
+`🧹 ¡ALERTA DE MANTENIMIENTO! 🚀 A ${o1} y a ${o2} les toca limpiar la nave hoy. Mientras ${o1} intenta pasar la mopa en gravedad cero flotando en círculos, ${o2} derramó su café frío sobre los mandos del hiperimpulsor. ¡A fregar antes de que nos estrelemos contra un asteroide! 🌌✨`,
     
     `🧽 SANCIÓN COMUNITARIA 🛸: ${o1} y ${o2} fueron atrapados durmiendo en las cápsulas de escape y hoy les toca fregar los motores. ${o1} usó detergente de materia oscura que abrió un portal al infierno y ${o2} tiró la basura por la escotilla equivocada... ¡La nave ahora huele a tostada quemada galáctica! 🧼⭐`,
     
@@ -25,8 +32,8 @@ module.exports = (req, res) => {
     `📦 INCIDENTE EN EL ALMACÉN 🚨: A ${o1} y ${o2} les tocó organizar la bodega. ${o1} tiró una torre de cajas de suministros como fichas de dominó y ${o2} quedó atrapado abajo gritando que lo rescaten antes de que comience la inspección de la VTuber. 🛒😵`
   ];
 
-  const historiaAleatoria = historias[Math.floor(Math.random() * historias.length)];
+  const respuesta = historias[Math.floor(Math.random() * historias.length)];
 
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.status(200).send(historiaAleatoria);
+  res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+  res.status(200).send(respuesta);
 };
