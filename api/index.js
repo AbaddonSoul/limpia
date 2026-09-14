@@ -28,9 +28,6 @@ module.exports = (req, res) => {
     
     `🪰 PLAGA EN EL COMEDOR 🛸: ${o1} y ${o2} tienen que desinfectar la cocina. ${o1} usó un insecticida experimental que hizo mutar a las moscas espaciales al tamaño de un perro, y ${o2} está intentando negociar un tratado de paz con ellas en vez de limpiar. 🍔🛸`,
     
-    `🧼 FIESTA DE ESPUMA NO DESEADA 🫧: ${o1} mezcló por error jabón de platos con combustible de plasma y ${o2} dejó abierta la manguera principal. Toda la nave está inundada de burbujas hasta el techo y ambos están haciendo surf espacial en los pasillos en lugar de recoger. 🏄‍♂️✨`,
-    
-    `📦 INCIDENTE EN EL ALMACÉN 🚨: A ${o1} y ${o2} les tocó organizar la bodega. ${o1} tiró una torre de cajas de suministros como fichas de dominó y ${o2} quedó atrapado abajo gritando que lo rescaten antes de que comience la inspección de la VTuber. 🛒😵`
   ];
 
   const respuesta = historias[Math.floor(Math.random() * historias.length)];
